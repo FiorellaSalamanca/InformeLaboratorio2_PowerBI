@@ -1,0 +1,100 @@
+\section{Ejercicio 2: Calculations - Tarea 1: Añadir una Columna Calculada} 
+
+
+\begin{enumerate}[1.]
+    \item En Power BI Desktop, haga clic en Data en el panel de vistas en el lado izquierdo.
+    \item En el panel Fields, haga clic en DimCustomer.
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/1}
+	\end{center}	
+
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba:\\
+
+\textbf {IncomeStatus = IF (DimCustomer[YearlyIncome] < 25000, "Lower Income", IF \\
+(AND(DimCustomer[YearlyIncome] >= 25000, DimCustomer[YearlyIncome] < 60000), "Middle Income", IF\\ (AND(DimCustomer[YearlyIncome] >= 60000, DimCustomer[YearlyIncome] < 100000), "Higher Income", IF\\ (DimCustomer[YearlyIncome] >= 100000, "Very High Income", " Other"))))}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/2}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba: \\
+
+\textbf{DaysSinceFirstPurchase = DATEDIFF(DimCustomer[DateFirstPurchase], TODAY(), DAY)}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/22}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba: \\
+
+\textbf{FullName = [FirstName] \& " " \& [LastName]}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/3}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba: \\
+
+\textbf{MaleFemale = IF([Gender] = "M", "Male", "Female")}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/4}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba:\\
+
+\textbf{Relationship = IF([MaritalStatus] = "M", "Married", "Single")}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/5}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En el panel Fields, haga clic en DimProductSubcategory.
+    \item En la cinta de Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba: \\
+
+\textbf{MainCategory = RELATED(DimProductCategory[CategoryName])}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/6}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En el panel Fields, haga clic en DimPromotion.
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba: \\
+
+\textbf{PromotionLengthDays = DATEDIFF(DimPromotion[StartDate],\\
+DimPromotion[EndDate], DAY)}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/7}
+	\end{center}	
+
+    \item Presione Enter.
+    \item En el panel Fields, haga clic en FactInternetSales.
+    \item En la cinta Modeling, en el grupo Calculations, haga clic en New Column.
+    \item En la barra de fórmulas, resalte Column = y escriba: \\
+
+\textbf{Profit = CURRENCY(FactInternetSales[UnitPrice] - \\
+FactInternetSales [ProductStandardCost])}\\
+
+	\begin{center}
+	\includegraphics[width=17cm]{./Imagenes/Ejercicio2-Tarea1/8}
+	\end{center}	
+
+    \item Presionar Enter.
+    \item Cerrar Power BI Desktop, salvando cualquier cambio
+
+\end{enumerate}
